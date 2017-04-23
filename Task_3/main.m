@@ -24,7 +24,7 @@ for i  = 1:length(K_local)
     
 end
 
-figure;
+figure(1);
 [X, Y] = meshgrid(K_local, C_local);
 surface = [X, Y, torque];
 
@@ -35,10 +35,12 @@ C_optimal = C_local(Y_min);
 
 k = K_optimal;
 c = C_optimal;
+clear u_torque;
 
-sim('environment_model_task3','StopTime','100');
+sim('environment_model_task3','StopTime','1500');
 
-figure(tout, u_torque);
+figure(2);
+plot(tout, u_torque);
 xlabel('Time');
 ylabel('Torque (nm');
 

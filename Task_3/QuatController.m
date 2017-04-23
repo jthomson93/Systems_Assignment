@@ -16,7 +16,7 @@ t3 = wx;
 t4 = (I*wx);
 
 
-qautFeedFunc = t1 + t2 + cross(t3, t4);
+qautFeedFunc = (t1 + t2 + cross(t3, t4));
 
 end
 

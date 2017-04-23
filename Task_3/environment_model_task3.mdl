@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.38"
+    ComputedModelVersion    "1.41"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -40,7 +40,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [16.0, 39.0, 1232.0, 684.0]
+      Location		      [34.0, 42.0, 1232.0, 700.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,9 +64,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1198.0, 511.0]
+	Extents			[1198.0, 527.0]
 	ZoomFactor		[0.6]
-	Offset			[101.68214285714669, -527.82081280788316]
+	Offset			[237.07445308907052, -555.40560284893593]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -86,7 +86,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABvAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKgD///8AAATQAAACNgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKgD///8AAATQAAACRgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAL0/////wAAAAAAAAAA/"
@@ -99,15 +99,15 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "jamesthomson"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Apr 23 17:05:54 2017"
-  RTWModifiedTimeStamp	  414867023
-  ModelVersionFormat	  "1.%<AutoIncrement:38>"
+  LastModifiedDate	  "Sun Apr 23 19:34:24 2017"
+  RTWModifiedTimeStamp	  414875425
+  ModelVersionFormat	  "1.%<AutoIncrement:41>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
-  ShowLineDimensions	  off
+  ShowLineDimensions	  on
   ShowPortDataTypes	  off
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  off
@@ -206,7 +206,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "20000"
+	  StopTime		  "100"
 	  AbsTol		  "1e-6"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -1104,10 +1104,21 @@ Model {
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SaveFormat	      "Array"
+      Save2DSignal	      "Inherit from input (this choice will be removed - see release notes)"
+      FixptAsFi		      off
+      NumInputs		      "1"
+      SampleTime	      "0"
+    }
   }
   System {
     Name		    "environment_model_task3"
-    Location		    [16, 39, 1248, 723]
+    Location		    [34, 42, 1266, 742]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1121,7 +1132,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "315"
+    SIDHighWatermark	    "317"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -1333,6 +1344,19 @@ Model {
       "ntal',false,'ShowVertical',true,'LockCursorSpacing',false,'SnapToData',false,'SettingsPanelOpen',0,'Measurements"
       "PanelOpen',1)),'Version','2016a')),'Version','2016a','Position',[387 77 1057 674])"
       NumInputPorts	      "1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "316"
+      Ports		      [1]
+      Position		      [1035, -90, 1095, -60]
+      ZOrder		      57
+      VariableName	      "u_torque"
+      MaxDataPoints	      "inf"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
+      FixptAsFi		      on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      MATLABFcn
@@ -1756,6 +1780,16 @@ Model {
       Output1D		      off
     }
     Block {
+      BlockType		      MATLABFcn
+      Name		      "trans"
+      SID		      "317"
+      Ports		      [1, 1]
+      Position		      [910, -90, 980, -60]
+      ZOrder		      58
+      MATLABFcn		      "transpose"
+      Output1D		      off
+    }
+    Block {
       BlockType		      Scope
       Name		      "Scope1"
       SID		      "314"
@@ -1942,9 +1976,19 @@ Model {
       ZOrder		      116
       SrcBlock		      "Quatermon Feedback Controller"
       SrcPort		      1
-      Points		      [23, 0; 0, -85]
-      DstBlock		      "Mux1"
-      DstPort		      2
+      Points		      [23, 0]
+      Branch {
+	ZOrder			172
+	Points			[0, 15]
+	DstBlock		"trans"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			171
+	Points			[0, -85]
+	DstBlock		"Mux1"
+	DstPort			2
+      }
     }
     Line {
       ZOrder		      124
@@ -1997,6 +2041,13 @@ Model {
       SrcPort		      1
       DstBlock		      "Mux"
       DstPort		      3
+    }
+    Line {
+      ZOrder		      173
+      SrcBlock		      "trans"
+      SrcPort		      1
+      DstBlock		      "To Workspace"
+      DstPort		      1
     }
   }
 }

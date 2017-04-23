@@ -1,9 +1,8 @@
 clear all;
 run('constants.m');
 
-K_local = [0:0.01:0.5];
-C_local = [0:0:0.05:2];
-torque_c = zer(1:length(C_local),1)
+K_local = [0:0.1:0.2]';
+C_local = [0:0.1:0.1]';
 
 for i  = 1:length(K_local)
   
@@ -13,19 +12,20 @@ for i  = 1:length(K_local)
         
          c = C_local(j);
          
-         sim('enviornment_model_taks3');
-         max_toque = max(u_torque(:));
+         sim('environment_model_task3');
+         max_torque = max(max(u_torque));
          
          torque_c(j) = max_torque;
    
+         [i j]
     end
     
-    torque (:,i) = torque_c
+    torque (:,i) = torque_c;
     
 end
 
 figure;
-[X, Y] = meshgrid(K, C);
+[X, Y] = meshgrid(K_local, C_local);
 surface = [X, Y, torque];
 
 minimumTorque = min(min(torque));
@@ -36,10 +36,11 @@ C_optimal = C_local(Y_min);
 k = K_optimal;
 c = C_optimal;
 
-sim('environmental_model_task3','StopTime','1000');
+sim('environment_model_task3');
 
-figure(tout, u_torque);
+figure;
+plot(tout, u_torque);
 xlabel('Time');
-ylabel('Torque (nm')
+ylabel('Torque (nm');
 
     
